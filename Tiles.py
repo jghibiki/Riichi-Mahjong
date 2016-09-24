@@ -1,3 +1,4 @@
+from Utils import DotDict
 
 class TileType:
     coin = 0
@@ -52,11 +53,7 @@ class TileValue:
 
 
 class Tile:
-    def __init__(self, tile_type):
-        self.type = tile_type
-        self.value = -1
-
-    def __init__(self, tile_type, tile_value):
+    def __init__(self, tile_type, tile_value=-1):
         self.type = tile_type
         self.value = tile_value
 
@@ -76,65 +73,56 @@ class Tile:
         return output
 
 
-# Coins
-
-c1 = Tile(TileType.coin, TileValue.one)
-c2 = Tile(TileType.coin, TileValue.two)
-c3 = Tile(TileType.coin, TileValue.three)
-c4 = Tile(TileType.coin, TileValue.four)
-c5 = Tile(TileType.coin, TileValue.five)
-c6 = Tile(TileType.coin, TileValue.six)
-c7 = Tile(TileType.coin, TileValue.seven)
-c8 = Tile(TileType.coin, TileValue.eight)
-c9 = Tile(TileType.coin, TileValue.nine)
-cr = Tile(TileType.coin, TileValue.red_five)
+# coin
+c = DotDict()
+c.t1 = Tile(TileType.coin, TileValue.one)
+c.t2 = Tile(TileType.coin, TileValue.two)
+c.t3 = Tile(TileType.coin, TileValue.three)
+c.t4 = Tile(TileType.coin, TileValue.four)
+c.t5 = Tile(TileType.coin, TileValue.five)
+c.t6 = Tile(TileType.coin, TileValue.six)
+c.t7 = Tile(TileType.coin, TileValue.seven)
+c.t8 = Tile(TileType.coin, TileValue.eight)
+c.t9 = Tile(TileType.coin, TileValue.nine)
+c.tr = Tile(TileType.coin, TileValue.red_five)
 
 # Bamboo
-b1 = Tile(TileType.bamboo, TileValue.one)
-b2 = Tile(TileType.bamboo, TileValue.two)
-b3 = Tile(TileType.bamboo, TileValue.three)
-b4 = Tile(TileType.bamboo, TileValue.four)
-b5 = Tile(TileType.bamboo, TileValue.five)
-b6 = Tile(TileType.bamboo, TileValue.six)
-b7 = Tile(TileType.bamboo, TileValue.seven)
-b8 = Tile(TileType.bamboo, TileValue.eight)
-b9 = Tile(TileType.bamboo, TileValue.nine)
-br = Tile(TileType.bamboo, TileValue.red_five)
+b = DotDict()
+b.t1 = Tile(TileType.bamboo, TileValue.one)
+b.t2 = Tile(TileType.bamboo, TileValue.two)
+b.t3 = Tile(TileType.bamboo, TileValue.three)
+b.t4 = Tile(TileType.bamboo, TileValue.four)
+b.t5 = Tile(TileType.bamboo, TileValue.five)
+b.t6 = Tile(TileType.bamboo, TileValue.six)
+b.t7 = Tile(TileType.bamboo, TileValue.seven)
+b.t8 = Tile(TileType.bamboo, TileValue.eight)
+b.t9 = Tile(TileType.bamboo, TileValue.nine)
+b.tr = Tile(TileType.bamboo, TileValue.red_five)
 
 
 # Characters
-k1 = Tile(TileType.character, TileValue.one)
-k2 = Tile(TileType.character, TileValue.two)
-k3 = Tile(TileType.character, TileValue.three)
-k4 = Tile(TileType.character, TileValue.four)
-k5 = Tile(TileType.character, TileValue.five)
-k6 = Tile(TileType.character, TileValue.six)
-k7 = Tile(TileType.character, TileValue.seven)
-k8 = Tile(TileType.character, TileValue.eight)
-k9 = Tile(TileType.character, TileValue.nine)
-kr = Tile(TileType.character, TileValue.red_five)
+k = DotDict()
+k.t1 = Tile(TileType.character, TileValue.one)
+k.t2 = Tile(TileType.character, TileValue.two)
+k.t3 = Tile(TileType.character, TileValue.three)
+k.t4 = Tile(TileType.character, TileValue.four)
+k.t5 = Tile(TileType.character, TileValue.five)
+k.t6 = Tile(TileType.character, TileValue.six)
+k.t7 = Tile(TileType.character, TileValue.seven)
+k.t8 = Tile(TileType.character, TileValue.eight)
+k.t9 = Tile(TileType.character, TileValue.nine)
+k.tr = Tile(TileType.character, TileValue.red_five)
 
 # Dragons
-dr = Tile(TileType.red_dragon)
-dg = Tile(TileType.green_dragon)
-dw = Tile(TileType.white_dragon)
+d = DotDict()
+d.r = Tile(TileType.red_dragon)
+d.g = Tile(TileType.green_dragon)
+d.w = Tile(TileType.white_dragon)
 
 # Winds
-we = Tile(TileType.east_wind)
-ws = Tile(TileType.south_wind)
-ww = Tile(TileType.north_wind)
-wn = Tile(TileType.west_wind)
-
-# Tile Lists
-
-coins = [c1 ,c2, c3, c4, c5, c6, c7, c8, c9, cr]
-bamboo = [b1, b2, b3, b4, b5, b6, b7, b8, b9, cr]
-characters = [k1, k2, k3, k4, k5, k6, k7, k8, k9, kr]
-winds = [we, ws, ww, wn]
-dragons = [dr, dg, dw]
-terminals = [ c1, c9, b1, b9, k1, k9]
-suits = [ *coins, *bamboo, *characters]
-honnors = [ *winds, *dragons ]
-edges = [ *terminals, *honors]
-allTiles = [ *suits, *winds, *dragons ]
+w = DotDict()
+w.e = Tile(TileType.east_wind)
+w.s = Tile(TileType.south_wind)
+w.w = Tile(TileType.north_wind)
+w.n = Tile(TileType.west_wind)
 
